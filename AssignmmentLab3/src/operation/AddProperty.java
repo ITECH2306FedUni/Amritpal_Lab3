@@ -3,7 +3,7 @@ package operation;
 import java.util.Scanner;
 
 /**
- * @author Takeogh
+ * @author Amritpal
  * @version 1.0
  * @created 02-Apr-2020 8:30:00am
  */
