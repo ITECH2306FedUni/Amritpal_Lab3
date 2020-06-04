@@ -13,6 +13,7 @@ import domain.SchoolCommunity;
 /**
  * @author Amritpal kaur ramana
  * @version 1.0
+ * 
  * @created 03 june,20
  */
 public class AddProperty extends FunctionalDialog {
