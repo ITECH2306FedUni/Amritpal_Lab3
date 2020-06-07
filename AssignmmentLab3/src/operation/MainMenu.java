@@ -76,8 +76,9 @@ public class MainMenu {
 				break;
 			case 2:
 				fd = new AddProperty(console);
+				fd.obtainInput(1);
+				fd.respondToInput();
 				break;
-				
 			case 3:
 				fd = new CalculatePropertyTypeRates(console);
 				break;
