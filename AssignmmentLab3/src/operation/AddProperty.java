@@ -13,7 +13,7 @@ import domain.SchoolCommunity;
 /**
  * @author Amritpal kaur ramana
  * @version 1.0
- * @created 03 june,20
+ * @Created 20 may, 2020
  */
 public class AddProperty extends FunctionalDialog {
 
@@ -22,6 +22,7 @@ public class AddProperty extends FunctionalDialog {
 		super(1,console);
 		pdata = new PropertyData();
 		pdata.readFromFile();
+		System.out.println("\nInitial List of Properties is :\n "+pdata.toString());
 	}
 
 	@Override
@@ -77,7 +78,7 @@ public class AddProperty extends FunctionalDialog {
 		property.setLocation(location);
 		property.setArea(area);
 		property.setSiteValue(siteValue);
-		
+		property.setUpExtraServices();
 		pdata.insert(property);
 		setStillRunning(false);	
 	}
@@ -85,8 +86,7 @@ public class AddProperty extends FunctionalDialog {
 	@Override
 	public void respondToInput() {
 		System.out.println("\nList of Properties is :\n "+pdata.toString());
-		pdata.writeToFile();
+		//pdata.writeToFile();
 	}
 
 }
-	

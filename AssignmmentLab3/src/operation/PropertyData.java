@@ -6,9 +6,8 @@ import java.io.*;
 /**
  * @author Amritpal kaur ramana
  * @version 1.0
- * @created 5 june, 2020
+ * @Created 20 may, 2020
  */
-
 
 public class PropertyData {
 	private ArrayList<Property> properties;
@@ -46,7 +45,7 @@ public class PropertyData {
 			outFile = new PrintStream(fos);
 			for(Property property: properties)
 			{
-				outFile.println(property.toString());
+				outFile.println(property.getDescription()+","+property.getLocation());
 			}
 		}
 		catch(Exception ex)
@@ -59,7 +58,7 @@ public class PropertyData {
 	{
 		try
 		{
-			File file = new File("C:\\Users\\RS\\git\\Amritpal_Lab3\\AssignmmentLab3\\src\\files\\ITECH2306_2020_Load_Properties.txt");
+			File file = new File("pC:\\Users\\RS\\git\\Amritpal_Lab3\\AssignmmentLab3\\src\\files\\ITECH2306_2020_Load_Properties.txt");
 			Scanner input = new Scanner(file);
 			Property property=null;
 			while(input.hasNext()) {
@@ -94,7 +93,7 @@ public class PropertyData {
 				property.setLocation(values[2]);
 				property.setArea(Double.parseDouble(values[3]));
 				property.setSiteValue(Double.parseDouble(values[4]));
-				
+				property.setUpExtraServices();
 				properties.add(property);
 			}
 			file = null;

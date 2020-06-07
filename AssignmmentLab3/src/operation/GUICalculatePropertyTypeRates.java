@@ -1,16 +1,18 @@
 package operation;
 import javax.swing.*;
+
+import domain.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * @author Amritpal kaur ramana
- * @version 1.0
- * @created 05 june,20
- */
-
-public class GUICalculatePropertyTypeRates extends JFrame {
-
+public class GUICalculatePropertyTypeRates extends JFrame implements ActionListener{
+	/**
+	 * @author Amritpal kaur ramana
+	 * @version 1.0
+	 * @Created 20 may, 2020
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel propertyType, valueProperty, lblCategory,lblCharity;
 	private JRadioButton r1, r2, r3, r4, r5, r6, c1, c2, c3;
 	private JTextField txtValueProperty;
@@ -82,6 +84,51 @@ public class GUICalculatePropertyTypeRates extends JFrame {
 		mainPanel.add(btnCalculate);
 		
 		add(mainPanel);
+		btnCalculate.addActionListener(this);
+		
+	}
+	
+	
+	public void actionPerformed(ActionEvent ae)
+	{
+		Property property=null;
+		double capitalImprovedValue;
+		boolean charityStatus;
+		if(r1.isSelected())
+		{
+			property = new Residential();
+		}
+		else if(r2.isSelected())
+		{
+			property = new Commercial();
+		}
+		else if(r2.isSelected())
+		{
+			property = new Industrial();
+		}
+		else if(r2.isSelected())
+		{
+			property = new Hospital();
+		}
+		else if(r2.isSelected())
+		{
+			property = new SchoolCommunity();
+		}
+		else if(r2.isSelected())
+		{
+			property = new OtherProperty();
+		}
+		
+		capitalImprovedValue = Double.parseDouble(txtValueProperty.getText());
+		
+		charityStatus = chkCharityStatus.isSelected();
+		
+		if (property != null) {
+			property.setCapitalImprovedValue(capitalImprovedValue);
+			property.setUpExtraServices();
+			property.getOwner().setCharity(charityStatus);
+			JOptionPane.showMessageDialog(null,"Details Selected: " + property +  "\n" + "Total Rate Costs: " +property.calculateRates() );
+		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
